@@ -3,6 +3,14 @@
   "name": "React TS Extension",
   "version": "1.0",
   "description": "Firefox extension with React + TS",
+  "permissions": ["activeTab"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://tiermaker.com/*"],
+      "js": ["content.js"]
+    }
+  ],
   "action": {
     "default_popup": "index.html",
     "default_icon": { "48": "icon.png" }
