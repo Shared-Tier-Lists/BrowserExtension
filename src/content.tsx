@@ -1,23 +1,36 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import ProjectMenuButton from './ProjectMenuButton.tsx'
-
-// Create a container for your React app
-const container = document.createElement('div')
-container.id = 'my-extension-root'
+import contentStyles from './content.css?inline'
 
 
-const shareButtons = document.getElementById('outer-share')
+const container = document.createElement('div');
+container.id = 'shared-tier-list-extension-root';
+container.style.cssText = `
+    display: flex;
+    justify-content: center;
+    padding: 0px 0px 20px 0px;
+`;
 
-console.log(shareButtons)
+const shareButtons = document.getElementById('outer-share');
 
 if (shareButtons && shareButtons.parentNode) {
     shareButtons.parentNode.insertBefore(container, shareButtons);
-}
 
-// Render React app
-ReactDOM.createRoot(container).render(
-    <React.StrictMode>
-        <ProjectMenuButton name={"DK WON"} />
-    </React.StrictMode>
-)
+    const shadowRoot = container.attachShadow({ mode: 'open' });
+
+    const styleSheet = document.createElement('style');
+    styleSheet.textContent = contentStyles;
+    shadowRoot.appendChild(styleSheet);
+
+    const appContainer = document.createElement('div');
+    shadowRoot.appendChild(appContainer);
+
+    ReactDOM.createRoot(appContainer).render(
+        <React.StrictMode>
+            <ProjectMenuButton name={"DK WON"} />
+        </React.StrictMode>
+    );
+} else {
+    console.warn('No #outer-share element to inject extension');
+}
