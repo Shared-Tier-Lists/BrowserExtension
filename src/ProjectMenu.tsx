@@ -1,4 +1,5 @@
 import React from 'react';
+import ProjectGridView from "./ProjectGridView.tsx";
 
 interface ProjectMenuProps {
     open: boolean
@@ -25,8 +26,7 @@ const ProjectMenu = ({ open, setOpen }: ProjectMenuProps) => {
             h-[50%]
             text-center
         ">
-            <strong>🍌 Donkey Kong says hi!</strong>
-            <p>This is a React popup injected into the page.</p>
+            <ProjectGridView/>
             <button onClick={() => setOpen(false)}>Close</button>
         </div>
 
