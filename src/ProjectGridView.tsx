@@ -1,14 +1,10 @@
 import React from "react";
-
+import ProjectGridItem from "./ProjectGridItem.tsx";
 
 const ProjectGridView: React.FC = () => {
     return (
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(8rem,1fr))] gap-4 p-4">
-            <div className="h-25 bg-blue-200">1</div>
-            <div className="h-25 bg-blue-200">2</div>
-            <div className="h-25 bg-blue-200">3</div>
-            <div className="h-25 bg-blue-200">4</div>
-            <div className="h-25 bg-blue-200">5</div>
+            <ProjectGridItem name={"0"} id={"68d8958bca4a3ed28ee04180"} />
         </div>
     )
 }
