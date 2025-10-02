@@ -12,7 +12,7 @@ const ProjectMenuButton = ({ name }: ProjectMenuProps) => {
 
     return (
         <>
-            <button className="bg-purple-700 z-[999999]" onClick={() => setPopupOpen(true)}>
+            <button className="bg-purple-700 text-white z-[999999]" onClick={() => setPopupOpen(true)}>
                 {name}
             </button>
             <ProjectMenu open={popupOpen} setOpen={setPopupOpen} />
