@@ -1,10 +1,18 @@
-import React from "react";
 import ProjectGridItem from "./ProjectGridItem.tsx";
+import type {Project} from "./projectRequestTypes.ts";
 
-const ProjectGridView: React.FC = () => {
+
+interface ProjectGridViewProps {
+    projects: Project[]
+    openProjectRequest: (projectId: string) => Promise<void>
+}
+
+const ProjectGridView = ({ projects, openProjectRequest }: ProjectGridViewProps) => {
     return (
         <div className="grid [grid-template-columns:repeat(auto-fit,minmax(8rem,1fr))] gap-4 p-4">
-            <ProjectGridItem name={"0"} id={"68d8958bca4a3ed28ee04180"} />
+            {projects.map((project) => (
+                <ProjectGridItem name={project.name} id={project.id} openProjectRequest={openProjectRequest} />
+            ))}
         </div>
     )
 }

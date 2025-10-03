@@ -1,14 +1,18 @@
-import React from 'react';
 import ProjectGridView from "./ProjectGridView.tsx";
+import type {Project} from "./projectRequestTypes.ts";
+import React, {type Dispatch} from "react";
+
 
 interface ProjectMenuProps {
-    open: boolean
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+    menuOpen: boolean
+    menuSetOpen: Dispatch<React.SetStateAction<boolean>>
+    projects: Project[]
+    openProjectRequest: (projectId: string) => Promise<void>
 }
 
-const ProjectMenu = ({ open, setOpen }: ProjectMenuProps) => {
+const ProjectMenu = ({ projects, menuOpen, menuSetOpen, openProjectRequest }: ProjectMenuProps) => {
 
-    if (!open) return null;
+    if (!menuOpen) return null;
 
     return (
         <div className="
@@ -26,8 +30,8 @@ const ProjectMenu = ({ open, setOpen }: ProjectMenuProps) => {
             h-[50%]
             text-center
         ">
-            <ProjectGridView/>
-            <button onClick={() => setOpen(false)}>Close</button>
+            <ProjectGridView projects={projects} openProjectRequest={openProjectRequest} />
+            <button onClick={() => menuSetOpen(false)}>Close</button>
         </div>
 
     );

@@ -1,10 +1,9 @@
-async function apiRequest<TRequest, TResponse>(
+async function postRequest<TRequest, TResponse>(
     url: string,
-    method: "GET" | "POST",
     body?: TRequest
 ): Promise<TResponse> {
     const response = await fetch(url, {
-        method,
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: body ? JSON.stringify(body) : undefined,
     });
@@ -13,7 +12,7 @@ async function apiRequest<TRequest, TResponse>(
         throw new Error(`HTTP ERROR: ${response.status}`);
     }
 
-    return response.json() as Promise<TResponse>;
+    return response.json();
 }
 
 function getUserId(): number {
@@ -22,5 +21,4 @@ function getUserId(): number {
     return match ? Number(match[1]) : -1;
 }
 
-
-export { apiRequest, getUserId };
+export { postRequest, getUserId };
