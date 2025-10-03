@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
 import contentStyles from './content.css?inline'
-import App from "./App.tsx";
 import React from "react";
+import ProjectMenuButton from "./ProjectMenuButton.tsx";
 
 
 const container = document.createElement('div');
@@ -28,7 +28,7 @@ if (shareButtons && shareButtons.parentNode) {
 
     ReactDOM.createRoot(appContainer).render(
         <React.StrictMode>
-            <App/>
+            <ProjectMenuButton name={"Open Project"} />
         </React.StrictMode>
     );
 } else {
