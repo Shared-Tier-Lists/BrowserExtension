@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import ProjectMenu from "./ProjectMenu.tsx";
 import {getUserId, postRequest} from "./util.tsx";
-import type {OpenProjectRequest, OpenProjectResponse, Project, ProjectListRequest} from "./projectRequestTypes.ts";
+import type {OpenProjectRequest, OpenProjectResponse, Project, ProjectListRequest} from "./types.ts";
 
 
 interface ProjectMenuButtonProps {

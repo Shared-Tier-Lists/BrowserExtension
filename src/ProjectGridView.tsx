@@ -1,5 +1,5 @@
 import ProjectGridItem from "./ProjectGridItem.tsx";
-import type {Project} from "./projectRequestTypes.ts";
+import type {Project} from "./types.ts";
 
 
 interface ProjectGridViewProps {

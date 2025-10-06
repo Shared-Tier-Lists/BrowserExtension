@@ -1,5 +1,5 @@
 import ProjectGridView from "./ProjectGridView.tsx";
-import type {Project} from "./projectRequestTypes.ts";
+import type {Project} from "./types.ts";
 import React, {type Dispatch} from "react";
 
 
